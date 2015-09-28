@@ -6,10 +6,20 @@ void setup()
 void draw()
 {
   //your code here
+  background(0);
 }
 void mouseDragged()
 {
   //your code here
+}
+
+void mousePressed(){//or Dragged
+  if(mouseButton == LEFT){
+    fill((int)(Math.random()*256)+1,(int)(Math.random()*256)+1,(int)(Math.random()*256)+1);
+  }
+  else if(mouseButton == RIGHT){
+    Snowflake.erase();
+  }
 }
 
 class Snowflake
@@ -27,18 +37,20 @@ class Snowflake
   void show()
   {
     //your code here
+    fill(255);
+    ellipse(x, y, 5, 5);
   }
   void lookDown()
   {
     //your code here
-    if(0<y<300 || get(x,y)!=0)isMoving = false;
+    if(0<y<300 && get(x,y)!=0) isMoving = false;
     else isMoving = true;
   }
   void erase()
   {
     //your code here
     fill(0);
-    ellipse(x, y, 7, 7);
+    ellipse(mouseX, mouseY, 7, 7);
   }
   void move()
   {
