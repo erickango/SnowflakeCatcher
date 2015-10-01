@@ -32,7 +32,7 @@ void mouseDragged()
     ellipse(mouseX, mouseY, 10,10);
   } else if(mouseButton == RIGHT){
     fill(0);
-    ellipse(mouseX, mouseY, 7,7);
+    ellipse(mouseX, mouseY, 15, 15);
   }
 }
 
