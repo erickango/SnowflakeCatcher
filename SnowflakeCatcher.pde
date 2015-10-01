@@ -26,22 +26,18 @@ void draw()
 void mouseDragged()
 {
   //your code here
-   if(mouseButton == LEFT){
+  if(mouseButton == LEFT){
     fill((int)(Math.random()*256)+1,(int)(Math.random()*256)+1,(int)(Math.random()*256)+1);
-    stroke(5);
-    line(mouseX, mouseY, mouseX, mouseY);
+
+    ellipse(mouseX, mouseY, 10,10);
+  } else if(mouseButton == RIGHT){
+    fill(0);
+    ellipse(mouseX, mouseY, 7,7);
   }
 }
 
-/*void mousePressed(){//or Dragged
-  if(mouseButton == LEFT){
-    fill((int)(Math.random()*256)+1,(int)(Math.random()*256)+1,(int)(Math.random()*256)+1);
-  }
-  else if(mouseButton == RIGHT){
-    Snowflake.erase();
-  }
-}
-*/
+
+
 class Snowflake
 {
   //class member variable declarations
@@ -64,7 +60,10 @@ class Snowflake
   void lookDown()
   {
     //your code here ...
-    if((0<=y && y<=300) && (get(x,y)!=0)) isMoving = false;
+    if((0<=y && y<=300) && (get(x,y+5)!=color(0))){
+
+      isMoving = false;
+    }
     else isMoving = true;
   }
   void erase()
@@ -81,7 +80,7 @@ class Snowflake
   void wrap()
   {
     //your code here ..
-    if(y>300){
+    if(y>=295){
       y = 0;
       x = (int)(Math.random() * 290)+5;
     }
